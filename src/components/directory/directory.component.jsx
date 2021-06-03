@@ -14,33 +14,33 @@ class Directory extends React.Component {
                     title: 'GMAW Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
                     id: 1,
-                    linkUrl: 'GMAW'
+                    linkUrl: 'gmaw'
                 },
                 {
                     title: 'Arc Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
                     id: 1,
-                    linkUrl: 'Arc'
+                    linkUrl: 'arc'
                 },
                 {
                     title: 'Plastic Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
                     id: 1
                     ,
-                    linkUrl: 'Plastic'
+                    linkUrl: 'plastic'
                 },
                 {
                     title: 'MIG Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
                     id: 1,
-                    linkUrl: 'MIG'
+                    linkUrl: 'mig'
                     
                 },
                 {
                     title: 'TIG Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
                     id: 1,
-                    linkUrl: 'TIG'
+                    linkUrl: 'tig'
                 }
             ]
         }
