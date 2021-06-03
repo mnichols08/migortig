@@ -1,7 +1,7 @@
 {
   "name": "migortig",
   "description": "This is a fork of the crwn-clothing project included with the ZTM React Developer Course",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.13.0",
