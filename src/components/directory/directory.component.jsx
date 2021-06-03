@@ -13,27 +13,34 @@ class Directory extends React.Component {
                 {
                     title: 'GMAW Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
-                    id: 1
+                    id: 1,
+                    linkUrl: 'GMAW'
                 },
                 {
                     title: 'Arc Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
-                    id: 1
+                    id: 1,
+                    linkUrl: 'Arc'
                 },
                 {
                     title: 'Plastic Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
                     id: 1
+                    ,
+                    linkUrl: 'Plastic'
                 },
                 {
                     title: 'MIG Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
-                    id: 1
+                    id: 1,
+                    linkUrl: 'MIG'
+                    
                 },
                 {
                     title: 'TIG Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
-                    id: 1
+                    id: 1,
+                    linkUrl: 'TIG'
                 }
             ]
         }
@@ -42,8 +49,8 @@ class Directory extends React.Component {
     render() {
         return (
             <div className='directory-menu'>
-                { this.state.sections.map(({ title, imageUrl, id, size }) => (
-                    <MenuItem key={id} title={title} imageUrl={imageUrl} size={size} />
+                { this.state.sections.map(({ id, ...otherSectionProps }) => (
+                    <MenuItem key={id} {...otherSectionProps} />
                 ))}
             </div>
         )
