@@ -1,29 +1,30 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import React from 'react'
+import { Switch, Route } from 'react-router-dom'
 
-import './App.css';
+import './App.css'
 
-import HomePage from './pages/homepage/homepage.component';
-import ShopPage from './pages/shop/shop.component';
-import AuthPage from './pages/auth/auth.component';
-import Header from './components/header/header.component';
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
+import HomePage from './pages/homepage/homepage.component'
+import ShopPage from './pages/shop/shop.component'
+import AuthPage from './pages/auth/auth.component'
+import Header from './components/header/header.component'
+import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+import { setCurrentUser } from './redux/user/user.actions'
 
 class App extends React.Component {
   constructor() {
-    super();
+    super()
 
     this.state = {
       currentUser: null
-    };
+    }
   }
 
-  unsubscribeFromAuth = null;
+  unsubscribeFromAuth = null
 
   componentDidMount() {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
+        const userRef = await createUserProfileDocument(userAuth)
         if (userRef)
         userRef.onSnapshot(snapShot => {
           this.setState({
@@ -31,15 +32,15 @@ class App extends React.Component {
               id: snapShot.id,
               ...snapShot.data()
             }
-          });
-        });
+          })
+        })
       }
-      this.setState({ currentUser: userAuth });
-    });
+      setCurrentUser(userAuth)
+    })
   }
 
   componentWillUnmount() {
-    this.unsubscribeFromAuth();
+    this.unsubscribeFromAuth()
   }
 
   render() {
@@ -52,8 +53,8 @@ class App extends React.Component {
           <Route path='/signin' component={AuthPage} />
         </Switch>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
