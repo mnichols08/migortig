@@ -1,24 +1,18 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { compose } from 'redux';
 
-import CollectionPreview from '../collection-preview'
+import { selectIsCollectionFetching } from '../../redux/shop/shop.selectors'
+import WithSpinner from '../with-spinner/'
+import CollectionsOverview from './component'
 
-import { selectCollectionsForPreview } from '../../redux/shop/shop.selectors'
+const mapStateToProps = createStructuredSelector({
+  isLoading: selectIsCollectionFetching
+})
 
-import './styles.scss'
+const CollectionsOverviewContainer = compose(
+  connect(mapStateToProps),
+  WithSpinner
+)(CollectionsOverview)
 
-const CollectionsOverview = ({ collections }) => (
-    <div className='collections-overview'>
-      {collections.map(({ id, ...otherCollectionProps }) => (
-        <CollectionPreview key={id} {...otherCollectionProps} />
-      ))}
-    </div>
-  );
-  
-  const mapStateToProps = createStructuredSelector({
-    collections: selectCollectionsForPreview
-  });
-  
-  export default connect(mapStateToProps)(CollectionsOverview);
-  
+export default CollectionsOverviewContainer

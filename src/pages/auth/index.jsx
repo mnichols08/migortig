@@ -3,13 +3,13 @@ import React from 'react'
 import SignIn from '../../components/sign-in/'
 import SignUp from '../../components/sign-up/'
 
-import './styles.scss'
+import { AuthContainer } from './styles'
 
 const AuthPage = () => (
-    <div className="auth">
+    <AuthContainer>
         <SignIn />
         <SignUp />
-    </div>
+    </AuthContainer>
 )
 
 export default AuthPage
