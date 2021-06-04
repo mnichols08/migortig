@@ -1,7 +1,7 @@
 {
   "name": "migortig",
   "description": "This is a fork of the crwn-clothing project included with the ZTM React Developer Course",
-  "version": "0.0.25",
+  "version": "0.0.26",
   "private": true,
   "dependencies": {
     "env-cmd": "^10.1.0",
