@@ -41,7 +41,7 @@ const CheckoutPage = ({ cartItems, total }) => (
             4242 4242 4242 4242 - Exp: 
             {parseInt(new Date().getMonth()) + 2}
              / 
-             {parseInt(new Date().toString().slice(13,-42)) + 1}
+            {parseInt(new Date().toString().slice(13,-42)) + 1}
              - CVV: 123
         </div>
         <StripeCheckoutButton price={total} />
