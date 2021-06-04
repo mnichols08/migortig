@@ -8,7 +8,7 @@ import CartDropdown from '../cart-dropdown/component'
 
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 
-import './header.styles.scss'
+import './styles.scss'
 
 const Header = ({ currentUser, hidden }) => (
     <div className='header'>

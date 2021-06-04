@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 
 import './App.css'
 
-import HomePage from './pages/homepage/homepage.component'
-import ShopPage from './pages/shop/shop.component'
-import AuthPage from './pages/auth/auth.component'
-import Header from './components/header/header.component'
+import HomePage from './pages/homepage/page'
+import ShopPage from './pages/shop/page'
+import AuthPage from './pages/auth/page'
+import Header from './components/header/component'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 import { setCurrentUser } from './redux/user/user.actions'
 

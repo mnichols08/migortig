@@ -1,9 +1,9 @@
 import React from 'react'
 
-import SignIn from '../../components/sign-in/sign-in.component'
-import SignUp from '../../components/sign-up/sign-up.component'
+import SignIn from '../../components/sign-in/component'
+import SignUp from '../../components/sign-up/component'
 
-import './auth.styles.scss'
+import './styles.scss'
 
 const AuthPage = () => (
     <div className="auth">
