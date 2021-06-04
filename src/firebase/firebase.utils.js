@@ -6,22 +6,21 @@ import 'firebase/auth'
 const config = {
   apiKey: process.env.REACT_APP_FIREBASE_API,
   authDomain: process.env.REACT_APP_FIREBASE_DOMAIN,
-  databaseURL: `https://${process.env.REACT_APP_FIREBASE_ID}.firebaseio.com`,
   projectId: process.env.REACT_APP_FIREBASE_ID,
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGEID,
-  appId: process.env.REACT_APP_FIREBASE_APPID
+  appId: process.env.REACT_APP_FIREBASE_APPID,
+  measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENTID
 }
 
 firebase.initializeApp(config)
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
+  
   if (!userAuth) return
-
-  const userRef = firestore.doc(`user/${userAuth.uid}`)
-
+  
+  const userRef = firestore.doc(`users/${userAuth.uid}`)
   const snapShot = await userRef.get()
-
   if (!snapShot.exists) {
     const { displayName, email } = userAuth
     const createdAt = new Date()
