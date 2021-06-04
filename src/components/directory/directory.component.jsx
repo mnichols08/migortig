@@ -33,6 +33,7 @@ class Directory extends React.Component {
                     title: 'MIG Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
                     id: 1,
+                    size: 'large',
                     linkUrl: 'mig'
                     
                 },
@@ -40,6 +41,7 @@ class Directory extends React.Component {
                     title: 'TIG Welders',
                     imageUrl: 'https://via.placeholder.com/350x150',
                     id: 1,
+                    size: 'large',
                     linkUrl: 'tig'
                 }
             ]
