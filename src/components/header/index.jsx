@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import { auth } from '../../firebase/firebase.utils'
-import CartIcon from '../cart-icon/component'
-import CartDropdown from '../cart-dropdown/component'
+import CartIcon from '../cart-icon/'
+import CartDropdown from '../cart-dropdown/'
 
 import { ReactComponent as Logo } from '../../assets/logo.svg'
 
@@ -38,7 +38,8 @@ const Header = ({ currentUser, hidden }) => (
 )
 
 const mapStateToProps = ({ user: { currentUser }, cart: { hidden }}) => ({
-  currentUser
+  currentUser,
+  hidden
 })
 
 export default connect(mapStateToProps)(Header)

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import CustomButton from '../custom-button/component'
+import CustomButton from '../custom-button'
 
 import './styles.scss'
 
