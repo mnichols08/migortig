@@ -1,7 +1,7 @@
 {
   "name": "migortig",
   "description": "This is a fork of the crwn-clothing project included with the ZTM React Developer Course",
-  "version": "0.0.31",
+  "version": "0.0.32",
   "proxy": "http://localhost:5000",
   "private": true,
   "dependencies": {
