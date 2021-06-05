@@ -1,61 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import FormInput from '../form-input/'
 import CustomButton from '../custom-button/'
 
-import { auth, createUserProfileDocument } from '../../firebase/firebase.utils'
+import { signUpStart } from '../../redux/user/user.actions'
 
 import { SignUpContainer, SignUpTitle } from './styles'
+import { connect } from 'react-redux'
 
-class SignUp extends React.Component {
-  constructor() {
-    super()
+const SignUp = ({ signUpStart }) => {
+  const [userCredentials, setUserCredentials] = useState({
+    displayName: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  })
 
-    this.state = {
-      displayName: '',
-      email: '',
-      password: '',
-      confirmPassword: ''
-    }
-  }
+  const { displayName, email, password, confirmPassword } = userCredentials
 
-  handleSubmit = async e => {
+  const handleSubmit = async e => {
     e.preventDefault()
-
-    const { displayName, email, password, confirmPassword } = this.state
 
     if (password !== confirmPassword) {
       alert("passwords do not match")
       return
     }
 
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      )
-
-      await createUserProfileDocument(user, { displayName })
-
-      this.setState({
-        displayName: '',
-        email: '',
-        password: '',
-        confirmPassword: ''
-      })
-    } catch (error) {
-      console.error(error)
-    }
+    signUpStart({ displayName, email, password })
   }
 
-  handleChange = e => {
+  const handleChange = e => {
     const { name, value } = e.target
 
-    this.setState({ [name]: value })
+    setUserCredentials({ ...userCredentials, [name]: value })
   }
-
-  render() {
-    const { displayName, email, password, confirmPassword } = this.state
     return (
       <SignUpContainer>
         <SignUpTitle>I do not have a account</SignUpTitle>
@@ -65,7 +43,7 @@ class SignUp extends React.Component {
             type='text'
             name='displayName'
             value={displayName}
-            onChange={this.handleChange}
+            onChange={handleChange}
             label='Display Name'
             required
           />
@@ -73,7 +51,7 @@ class SignUp extends React.Component {
             type='email'
             name='email'
             value={email}
-            onChange={this.handleChange}
+            onChange={handleChange}
             label='Email'
             required
           />
@@ -81,7 +59,7 @@ class SignUp extends React.Component {
             type='password'
             name='password'
             value={password}
-            onChange={this.handleChange}
+            onChange={handleChange}
             label='Password'
             required
           />
@@ -89,7 +67,7 @@ class SignUp extends React.Component {
             type='password'
             name='confirmPassword'
             value={confirmPassword}
-            onChange={this.handleChange}
+            onChange={handleChange}
             label='Confirm Password'
             required
           />
@@ -97,7 +75,13 @@ class SignUp extends React.Component {
         </form>
       </SignUpContainer>
     )
-  }
 }
 
-export default SignUp
+const mapDispatchToProps = dispatch => ({
+  signUpStart: userCredentials => dispatch(signUpStart(userCredentials))
+})
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(SignUp)

@@ -1,12 +1,14 @@
 {
   "name": "migortig",
   "description": "This is a fork of the crwn-clothing project included with the ZTM React Developer Course",
-  "version": "0.0.37",
+  "version": "0.0.38",
   "private": true,
   "proxy": "http://localhost:5000",
   "dependencies": {
     "axios": "^0.21.1",
     "env-cmd": "^10.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "firebase": "^8.6.3",
     "node-sass": "^6.0.0",
     "react": "^17.0.2",
@@ -15,6 +17,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-stripe-checkout": "^2.6.3",
+    "react-test-renderer": "^17.0.2",
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
