@@ -1,6 +1,6 @@
 {
   "name": "migortig-server",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "server for migortig",
   "enginers": {
     "node": "10.15.3",
