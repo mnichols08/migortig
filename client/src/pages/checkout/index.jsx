@@ -44,7 +44,7 @@ const CheckoutPage = ({ cartItems, total }) => (
         <WarningContainer>
         *Please use the following test credit card for payments*
         <br />
-        4242 4242 4242 4242 - Exp: 07/22 - CVV: 123
+        4242 4242 4242 4242 - Exp: {Math.floor(Math.random() * 12) + 1}/{parseInt(new Date().getFullYear().toString().slice(-2)) + 1 } - CVV: {Math.floor(Math.random() * 899) + 100}
         </WarningContainer>
         <StripeCheckoutButton price={total} />
     </CheckoutPageContainer>

@@ -35,6 +35,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
       console.error(`error creating user ${e.message}`)
     }
   }
+  return userRef
 }
 
 export const addCollectionAndDocuments = async (

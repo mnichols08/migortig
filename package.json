@@ -1,48 +1,40 @@
 {
-  "name": "migortig",
-  "description": "This is a fork of the crwn-clothing project included with the ZTM React Developer Course",
-  "version": "0.0.35",
-  "proxy": "http://localhost:5000",
-  "private": true,
-  "dependencies": {
-    "env-cmd": "^10.1.0",
-    "firebase": "^8.6.3",
-    "node-sass": "^6.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.4",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.3",
-    "react-stripe-checkout": "^2.6.3",
-    "redux": "^4.1.0",
-    "redux-logger": "^3.0.6",
-    "redux-persist": "^6.0.0",
-    "redux-saga": "^1.1.3",
-    "reselect": "^4.0.0",
-    "styled-components": "^5.3.0"
+  "name": "migortig-server",
+  "version": "0.0.1",
+  "description": "server for migortig",
+  "enginers": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
   },
   "scripts": {
-    "start": "env-cmd -f .env react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "build": "cd client && npm run build",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "start": "node server.js"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mnichols08/migortig.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "keywords": [
+    "node",
+    "react"
+  ],
+  "author": "Mikey Nichols",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mnichols08/migortig/issues"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "stripe": "^8.153.0"
+  },
+  "devDependencies": {
+    "concurrently": "^6.2.0",
+    "nodemon": "^2.0.7"
   }
 }
